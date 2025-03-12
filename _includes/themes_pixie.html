@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Grid Filtering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Filter checkboxes */
+        .filters {
+            margin-bottom: 15px;
+        }
+
+        /* Grid container */
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Grid items */
+        .grid-item {
+            width: 243px;
+            height: 232px;
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Image styling */
+        .grid-item img {
+            max-width: 219px;
+            max-height: 164px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Hide elements when filtered */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Filter Items</h2>
+    <div class="filters">
+        <label><input type="checkbox" class="filter-checkbox" value="640x480">640x480</label>
+        <label><input type="checkbox" class="filter-checkbox" value="720x480">720x480</label>
+        <label><input type="checkbox" class="filter-checkbox" value="720x576">720x576</label>
+        <label><input type="checkbox" class="filter-checkbox" value="720x720">720x720</label>
+        <label><input type="checkbox" class="filter-checkbox" value="1280x720">1280x720</label>
+        <label><input type="checkbox" class="filter-checkbox" value="language">Language Support</label>
+        <label><input type="checkbox" class="filter-checkbox" value="grid">Grid Mode</label>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item" data-tags="640x480 720x480">
+            <img src="https://raw.githubusercontent.com/MustardOS/theme/refs/heads/main/2502.0_Pixie/Analogue-Arimo/640x480/preview.png">
+            <a href="https://github.com/MustardOS/theme/releases/latest/download/Analogue-Arimo.muxthm">Analogue-Arimo</a>
+            <p>by: Cheema OTB (original: Aemiii91)</p>
+        </div>
+
+        <div class="grid-item" data-tags="640x480">
+            <img src="https://raw.githubusercontent.com/MustardOS/theme/refs/heads/main/2502.0_Pixie/Analogue/640x480/preview.png">
+            <a href="https://github.com/MustardOS/theme/releases/latest/download/Analogue.muxthm">Analogue</a>
+            <p>by: Cheema OTB (original: Aemiii91)</p>
+        </div>
+
+        <div class="grid-item" data-tags="720x480">
+            <img src="https://raw.githubusercontent.com/MustardOS/theme/refs/heads/main/2502.0_Pixie/Art%20Book%20Next%20v1%20Chs/640x480/preview.png">
+            <a href="https://github.com/MustardOS/theme/releases/latest/download/Art.Book.Next.v1.Chs.muxthm">Art Book Next v1 Chs</a>
+            <p>by: yingw (original: ciskao & anthonycaccese)</p>
+        </div>
+
+        <div class="grid-item" data-tags="720x720 640x480">
+            <img src="https://raw.githubusercontent.com/MustardOS/theme/refs/heads/main/2502.0_Pixie/Art%20Book%20Next%20v1/640x480/preview.png">
+            <a href="https://github.com/MustardOS/theme/releases/latest/download/Art.Book.Next.v1.muxthm">Art Book Next v1</a>
+            <p>by: ciskao (original: anthonycaccese)</p>
+        </div>
+        
+        <div class="grid-item" data-tags="720x720 640x480">
+            <img src="https://raw.githubusercontent.com/MustardOS/theme/refs/heads/main/2502.0_Pixie/Art%20Book%20Next%20v2/640x480/preview.png">
+            <a href="https://github.com/MustardOS/theme/releases/latest/download/Art.Book.Next.v2.muxthm">Art Book Next v2</a>
+            <p>by: ciskao (original: anthonycaccese)</p>
+        </div>
+        
+        <div class="grid-item" data-tags="720x720 640x480">
+            <img src="https://raw.githubusercontent.com/MustardOS/theme/refs/heads/main/2502.0_Pixie/Beans%20-%20Wonderland/640x480/preview.png">
+            <a href="https://github.com/MustardOS/theme/releases/latest/download/Beans.-.Wonderland.muxthm">Beans - Wonderland</a>
+            <p>by: Manveru0</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".filter-checkbox").forEach(checkbox => {
+            checkbox.addEventListener("change", filterItems);
+        });
+
+        function filterItems() {
+            let checkedFilters = Array.from(document.querySelectorAll(".filter-checkbox:checked"))
+                                     .map(cb => cb.value);
+
+            document.querySelectorAll(".grid-item").forEach(item => {
+                let tags = item.getAttribute("data-tags").split(" ");
+
+                // Show item if no filters are checked OR if it matches any filter
+                if (checkedFilters.length === 0 || tags.some(tag => checkedFilters.includes(tag))) {
+                    item.classList.remove("hidden");
+                } else {
+                    item.classList.add("hidden");
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

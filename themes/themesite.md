@@ -18,4 +18,6 @@ Currently the Theme Repo is undertaking an overhaul, however you can still acces
   
 > *Some themes have matching folder artwork whilst navigating Explore Content, this is installed separately from themes. To see if a theme has these available, navigate to the specific theme's release page on the [muOS Discord server](https://discord.gg/muos).*
 
+{% include themes_pixie.html %}
+
 {% include themes_pixie.md %}
