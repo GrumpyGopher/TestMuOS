@@ -22,8 +22,6 @@ Currently the Theme Repo is undertaking an overhaul, however you can still acces
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        console.log("Script is running!");
-
         document.querySelectorAll(".filter-checkbox").forEach(checkbox => {
             checkbox.addEventListener("change", filterItems);
         });
