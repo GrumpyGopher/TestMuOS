@@ -19,3 +19,28 @@ Currently the Theme Repo is undertaking an overhaul, however you can still acces
 > *Some themes have matching folder artwork whilst navigating Explore Content, this is installed separately from themes. To see if a theme has these available, navigate to the specific theme's release page on the [muOS Discord server](https://discord.gg/muos).*
 
 {% include themes_pixie.html %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Script is running!");
+
+        document.querySelectorAll(".filter-checkbox").forEach(checkbox => {
+            checkbox.addEventListener("change", filterItems);
+        });
+
+        function filterItems() {
+            let checkedFilters = Array.from(document.querySelectorAll(".filter-checkbox:checked"))
+                                      .map(cb => cb.value);
+
+            document.querySelectorAll(".grid-item").forEach(item => {
+                let tags = item.getAttribute("data-tags").split(" ");
+
+                if (checkedFilters.length === 0 || tags.some(tag => checkedFilters.includes(tag))) {
+                    item.classList.remove("hidden");
+                } else {
+                    item.classList.add("hidden");
+                }
+            });
+        }
+    });
+</script>
