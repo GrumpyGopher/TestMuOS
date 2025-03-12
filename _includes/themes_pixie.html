@@ -57,26 +57,29 @@
     </div>
 
     <script>
-        document.querySelectorAll(".filter-checkbox").forEach(checkbox => {
-            checkbox.addEventListener("change", filterItems);
-        });
-
-        function filterItems() {
+        document.addEventListener("DOMContentLoaded", function () {
             console.log("Script is running!");
-            let checkedFilters = Array.from(document.querySelectorAll(".filter-checkbox:checked"))
-                                     .map(cb => cb.value);
-
-            document.querySelectorAll(".grid-item").forEach(item => {
-                let tags = item.getAttribute("data-tags").split(" ");
-
-                // Show item if no filters are checked OR if it matches any filter
-                if (checkedFilters.length === 0 || tags.some(tag => checkedFilters.includes(tag))) {
-                    item.classList.remove("hidden");
-                } else {
-                    item.classList.add("hidden");
-                }
+    
+            document.querySelectorAll(".filter-checkbox").forEach(checkbox => {
+                checkbox.addEventListener("change", filterItems);
             });
-        }
+    
+            function filterItems() {
+                let checkedFilters = Array.from(document.querySelectorAll(".filter-checkbox:checked"))
+                                         .map(cb => cb.value);
+    
+                document.querySelectorAll(".grid-item").forEach(item => {
+                    let tags = item.getAttribute("data-tags").split(" ");
+    
+                    // Show item if no filters are checked OR if it matches any filter
+                    if (checkedFilters.length === 0 || tags.some(tag => checkedFilters.includes(tag))) {
+                        item.classList.remove("hidden");
+                    } else {
+                        item.classList.add("hidden");
+                    }
+                });
+            }
+        });
     </script>
 
 </body>
