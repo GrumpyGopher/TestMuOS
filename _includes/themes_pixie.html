@@ -62,6 +62,7 @@
         });
 
         function filterItems() {
+            console.log("Script is running!");
             let checkedFilters = Array.from(document.querySelectorAll(".filter-checkbox:checked"))
                                      .map(cb => cb.value);
 
