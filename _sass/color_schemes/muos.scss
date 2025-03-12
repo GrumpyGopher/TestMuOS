@@ -30,7 +30,7 @@ $border-color: $grey-dk-200;
 /* Grid items */
 .grid-item {
     width: 243px;
-    height: 232px;
+    min-height: 232px;
     border: 1px solid $border-color;
     text-align: center;
     padding: 10px;
