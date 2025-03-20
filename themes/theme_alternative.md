@@ -74,7 +74,7 @@ The second way of creating a `Alternative Theme` options is by creating `.muxzip
 │   └── Twilight.muxzip
 ```
 
-Each `Alternative Theme` `.muxzip` file will be extracted when a user selects it under `Congiguration -> Customisation`.  The file needs to be structured in a certain way in order for the files to be extracted to the active theme folder.  below is an example of how `Cloud.muxzip` from the `Aurora` theme is structured.
+Each `Alternative Theme` `.muxzip` file will be extracted when a user selects it under `Congiguration -> Customisation`.  The file needs to be structured in a certain way in order for the files to be extracted to the active theme folder.  Below is an example of how `Cloud.muxzip` from the `Aurora` theme is structured.
 
 ```
 .
