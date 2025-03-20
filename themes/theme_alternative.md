@@ -48,6 +48,6 @@ The first way of creating a `Alternative Theme` options is by creating scheme fi
 
 Each `Alternative Theme` scheme file can include any setting but keep in mind these settings will apply to all muOS screens and resolutions.  Typically you would use the files to change various colour parameters.  
 
-<img src="assets/images/alternative_theme_example_scheme.png" />
+<img src="assets/images/alternative_theme_example_scheme.png" /><br>
 *Example*
 
