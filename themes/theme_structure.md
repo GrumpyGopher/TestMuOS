@@ -13,6 +13,7 @@ correct place. Below is an example of the correct structure that you can replica
 
 ```
 .
+├── active.txt
 ├── assets.muxzip
 ├── credits.txt
 ├── alternate
