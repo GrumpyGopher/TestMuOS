@@ -1,8 +1,8 @@
 ---
-title: Theme Assets (Grid Images)
+title: Theme ALternates
 layout: default
 parent: Themes
-nav_order: 6
+nav_order: 5
 has_toc: false
 ---
 
